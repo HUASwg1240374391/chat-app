@@ -1,13 +1,20 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import NavItem from '../navItem'
 import './index.less'
 class Nav extends React.Component {
   render() {
     return (
       <div className="App-nav">
-        <Link to="/">主页</Link>
-        <Link to="/publish">发表</Link>
-        <Link to="/myself">我</Link>
+        <Link to="/">
+          <NavItem iconType="home">主页</NavItem>
+        </Link>
+        <Link to="/publish">
+          <NavItem iconType="publish">发布</NavItem>
+        </Link>
+        <Link to="/myself">
+          <NavItem iconType="myself">我的</NavItem>
+        </Link>
       </div>
     )
   }
