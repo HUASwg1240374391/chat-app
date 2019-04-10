@@ -1,17 +1,42 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import './App.less'
 import './iconfont/iconfont.css'
 import Nav from './components/nav'
 import { BrowserRouter } from 'react-router-dom'
-import HomePage from './components/homePage'
+import RouteMap from './util/routerMap'
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      token: ''
+    }
+  }
   render() {
     return (
       <div className="App">
         <BrowserRouter>
           <Nav />
-          <Route path="/" component={HomePage} />
+          <Switch>
+            {RouteMap.map((item, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={item.path}
+                  exact
+                  render={props => {
+                    return !item.auth ? (
+                      <item.component {...props} />
+                    ) : this.state.token ? (
+                      <item.component {...props} />
+                    ) : (
+                      <Redirect to="/login" />
+                    )
+                  }}
+                />
+              )
+            })}
+          </Switch>
         </BrowserRouter>
       </div>
     )
