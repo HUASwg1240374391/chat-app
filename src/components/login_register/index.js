@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './index.less'
 class LoginAndRegister extends React.Component {
   render() {
     return (
@@ -10,4 +11,7 @@ class LoginAndRegister extends React.Component {
     )
   }
 }
-export default LoginAndRegister
+function Fnbtn(props) {
+  return <div className="function-button">{props.text}</div>
+}
+export { LoginAndRegister, Fnbtn }

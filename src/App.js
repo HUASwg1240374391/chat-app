@@ -25,15 +25,20 @@ class App extends Component {
                   path={item.path}
                   exact
                   render={props => {
-                    return !item.auth ? (
-                      <item.component {...props} />
-                    ) : this.state.token ? (
-                      <item.component {...props} />
-                    ) : (
-                      <Redirect to="/login" />
-                    )
+                    return <item.component {...props} />
                   }}
                 />
+                /*
+                render={props => {
+                  return !item.auth ? (
+                    <item.component {...props} />
+                  ) : this.state.token ? (
+                    <item.component {...props} />
+                  ) : (
+                    <Redirect to="/login" />
+                  )
+                }}
+                */
               )
             })}
           </Switch>
