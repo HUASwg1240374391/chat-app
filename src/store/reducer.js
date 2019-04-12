@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
 import loginAndRegisterReducer from '../components/login_register/store/reducer'
+import navReducer from '../components/nav/store/reducer'
 export default combineReducers({
-  loginAndRegisterState: loginAndRegisterReducer
+  loginAndRegisterState: loginAndRegisterReducer,
+  navState: navReducer
 })

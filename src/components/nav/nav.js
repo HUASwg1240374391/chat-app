@@ -1,8 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import NavItem from '../navItem/navItem'
+import { connect } from 'react-redux'
+import * as actionCreators from './store/actionCreator'
 import './nav.less'
+
 class Nav extends React.Component {
+  componentDidMount() {
+    console.log(this.props)
+  }
   render() {
     return (
       <div className="App-nav">
@@ -19,4 +25,21 @@ class Nav extends React.Component {
     )
   }
 }
-export default Nav
+const mapState = state => {
+  return {
+    activeItem: state.navState.activeItem
+  }
+}
+const mapAction = dispatch => {
+  return {
+    updateActiveNavItem(path) {
+      dispatch(actionCreators.updateActiveNavItem(path))
+    }
+  }
+}
+export default withRouter(
+  connect(
+    mapState,
+    mapAction
+  )(Nav)
+)
