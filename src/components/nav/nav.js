@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import NavItem from '../navItem'
-import './index.less'
+import NavItem from '../navItem/navItem'
+import './nav.less'
 class Nav extends React.Component {
   render() {
     return (

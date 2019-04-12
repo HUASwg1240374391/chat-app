@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.less'
+import './backbar.less'
 
 class BackBar extends React.Component {
   goBack() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.less'
+import './navItem.less'
 class NavItem extends React.Component {
   render() {
     return (

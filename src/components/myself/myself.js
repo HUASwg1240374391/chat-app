@@ -1,5 +1,6 @@
 import React from 'react'
-import Backbar from '../backBar'
+import Backbar from '../backBar/backbar'
+import './myself.less'
 class Myself extends React.Component {
   render() {
     return (
