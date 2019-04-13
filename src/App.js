@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.less'
 import './iconfont/iconfont.css'
 import Nav from './components/nav/nav'

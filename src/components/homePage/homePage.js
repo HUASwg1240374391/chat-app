@@ -17,6 +17,7 @@ class HomePage extends React.Component {
               collectQuantity={item.collectQuantity}
               messageQuantity={item.messageQuantity}
               content={item.content}
+              id={item.id}
             />
           )
         })}

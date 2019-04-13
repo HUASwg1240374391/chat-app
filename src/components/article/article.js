@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import './article.less'
 // import axios from 'axios'
 class Article extends React.Component {
@@ -21,7 +22,12 @@ class Article extends React.Component {
           <span className="talk-info-quantity">
             {this.props.collectQuantity}
           </span>
-          <span className="iconfont icon-message" />
+          <span
+            onClick={() => {
+              this.props.history.replace(`/comment/${this.props.id}`)
+            }}
+            className="iconfont icon-message"
+          />
           <span className="talk-info-quantity">
             {this.props.messageQuantity}
           </span>
@@ -30,4 +36,4 @@ class Article extends React.Component {
     )
   }
 }
-export default Article
+export default withRouter(Article)

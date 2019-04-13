@@ -8,6 +8,7 @@ const defaultState = {
       title: '发表的标题',
       collectQuantity: '10',
       messageQuantity: '5',
+      id: 1,
       content:
         '我们建议使用 CDN 引入 Element 的用户在链接地址上锁定版本，以免将来 Element 升级时受到非兼容性更新的影响。锁定版本的方法请查看 unpkg.com。'
     },
@@ -19,6 +20,7 @@ const defaultState = {
       title: '发表的标题',
       collectQuantity: '10',
       messageQuantity: '5',
+      id: 2,
       content:
         '我们建议使用 CDN 引入 Element 的用户在链接地址上锁定版本，以免将来 Element 升级时受到非兼容性更新的影响。锁定版本的方法请查看 unpkg.com。'
     },
@@ -30,6 +32,7 @@ const defaultState = {
       title: '发表的标题',
       collectQuantity: '10',
       messageQuantity: '5',
+      id: 3,
       content:
         '我们建议使用 CDN 引入 Element 的用户在链接地址上锁定版本，以免将来 Element 升级时受到非兼容性更新的影响。锁定版本的方法请查看 unpkg.com。'
     },
@@ -41,6 +44,7 @@ const defaultState = {
       title: '发表的标题',
       collectQuantity: '10',
       messageQuantity: '5',
+      id: 4,
       content:
         '我们建议使用 CDN 引入 Element 的用户在链接地址上锁定版本，以免将来 Element 升级时受到非兼容性更新的影响。锁定版本的方法请查看 unpkg.com。'
     }
