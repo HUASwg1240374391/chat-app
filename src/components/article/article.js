@@ -17,7 +17,7 @@ class Article extends React.Component {
           <p className="specificContent">{this.props.content}</p>
         </div>
         <div className="talk-info">
-          <span className="iconfont icon-collect" />
+          <span className="iconfont icon-like" />
           <span className="talk-info-quantity">
             {this.props.collectQuantity}
           </span>
