@@ -5,7 +5,14 @@ class UserBasic extends React.Component {
     return (
       <div className="userBasic">
         <img className="userAvatar" src={this.props.avatar} alt="user-avatar" />
-        <span className="user-nickName">{this.props.nickName} </span>
+        <span
+          className="user-nickName"
+          onClick={() => {
+            this.props.click()
+          }}
+        >
+          {this.props.nickName}{' '}
+        </span>
       </div>
     )
   }
