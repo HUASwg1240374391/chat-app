@@ -10,6 +10,10 @@ class Myself extends React.Component {
       <div className="App-Myself">
         <Backbar title="我的" history={this.props.history} />
         <UserBasic
+          click={() => {
+            console.log('click')
+            this.props.history.replace('/userinfo')
+          }}
           nickName="追风中年人"
           avatar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbijmzOIPHo1xU7F9b5tZcrBBm79tKR55RZq6m3lxREZBABlZK"
         />

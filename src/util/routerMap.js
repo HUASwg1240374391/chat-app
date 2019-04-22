@@ -4,6 +4,7 @@ import Register from '../components/login_register/register/register'
 import Myself from '../components/myself/myself'
 import Publish from '../components/publish/publish'
 import Comment from '../components/comment/comment'
+import UserInfo from '../components/userInfo/userInfo'
 
 export default [
   { path: '/', name: 'homepage', component: HomePage },
@@ -11,5 +12,6 @@ export default [
   { path: '/register', name: 'register', component: Register },
   { path: '/myself', name: 'Myself', component: Myself, auth: true },
   { path: '/publish', name: 'Publish', component: Publish, auth: true },
-  { path: '/comment/:id', name: 'comment', component: Comment }
+  { path: '/comment/:id', name: 'Comment', component: Comment },
+  { path: '/userinfo', name: 'UserInfo', component: UserInfo, auth: true }
 ]

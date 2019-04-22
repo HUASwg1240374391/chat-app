@@ -1,0 +1,60 @@
+.userInfo {
+  width: 98vw;
+  background-color: #9b9a9a;
+  margin: 0 auto;
+  height: 93vh;
+  // padding-top: 2vw;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  .avatarBox {
+    width: 100%;
+    height: 8rem;
+    line-height: 8rem;
+    background: #252525;
+    img {
+      margin-top: 2rem;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+  .determinBtnBox {
+    width: 100%;
+    height: 1rem;
+    position: absolute;
+    bottom: 3vh;
+    display: flex;
+    justify-content: space-between;
+    span {
+      display: inline-block;
+      width: 40%;
+      height: 100%;
+      &:last-child {
+        div {
+          background-color: #f56c6c;
+          &:active {
+            background-color: #f09191 !important;
+          }
+        }
+      }
+    }
+  }
+  .userInfoItem {
+    width: 80%;
+    margin: 0 auto;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1rem;
+    span {
+      margin-right: 0.5rem;
+      color: white;
+    }
+    .UserInfoItemInput {
+      border: none;
+      font-size: 1rem;
+    }
+  }
+}
