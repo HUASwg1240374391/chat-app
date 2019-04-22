@@ -7,13 +7,30 @@ class Children extends React.Component {
       console.log(item.props)
     })
   }
+  handleChildren() {
+    let children = this.props.children
+    return React.Children.map(children, item => {
+      return React.cloneElement(item, {
+        // together: React.Children.count(children)
+        together: children
+      })
+    })
+  }
   render() {
     return (
       <div>
         <h1>i'm children container</h1>
-        <div>{this.props.children}</div>
+        <div>{this.handleChildren()}</div>
       </div>
     )
   }
 }
-export default Children
+function Inner(props) {
+  return (
+    <div>
+      <span>inner span</span>
+      {props.together}
+    </div>
+  )
+}
+export { Children, Inner }

@@ -3,6 +3,7 @@ import Backbar from '../backBar/backbar'
 import './myself.less'
 import UserBasic from '../userBasic/userBasic'
 import UserItem from '../userItem/userItem'
+import { Children, Inner } from '../children/children'
 import { Fnbtn } from '../login_register/login_register'
 class Myself extends React.Component {
   render() {
@@ -19,7 +20,6 @@ class Myself extends React.Component {
         />
         <UserItem icon="write" itemText="我的发表" />
         <div className="loginOut">
-          {' '}
           <Fnbtn
             text="退出登录"
             click={() => {
@@ -27,6 +27,11 @@ class Myself extends React.Component {
             }}
           />
         </div>
+        <Children>
+          <Inner />
+          <Inner />
+          {/* <Inner /> */}
+        </Children>
       </div>
     )
   }
