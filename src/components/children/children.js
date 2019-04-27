@@ -1,18 +1,46 @@
 import React from 'react'
 class Children extends React.Component {
-  componentDidMount() {
-    console.log('did mount')
-
-    React.Children.forEach(this.props.children, item => {
-      console.log(item.props)
+  constructor(prop) {
+    super(prop)
+    this.state = {
+      childrenAccount: 0,
+      value: 0
+    }
+    this.updateChildrenAccount = this.updateChildrenAccount.bind(this)
+  }
+  updateChildrenAccount() {
+    this.setState({
+      childrenAccount: this.state.childrenAccount + 1
     })
+  }
+  componentDidMount() {
+    this.setState({
+      value: this.state.value + 1
+    })
+    console.log(this.state.value)
+    this.setState({
+      value: this.state.value + 1
+    })
+    console.log(this.state.value)
+    setTimeout(() => {
+      this.setState({
+        value: this.state.value + 1
+      })
+      console.log(this.state.value)
+      this.setState({
+        value: this.state.value + 1
+      })
+      console.log(this.state.value)
+    }, 0)
   }
   handleChildren() {
     let children = this.props.children
+    let update = this.updateChildrenAccount
     return React.Children.map(children, item => {
       return React.cloneElement(item, {
         // together: React.Children.count(children)
-        together: children
+        together: children,
+        update
       })
     })
   }
@@ -25,12 +53,13 @@ class Children extends React.Component {
     )
   }
 }
-function Inner(props) {
-  return (
-    <div>
-      <span>inner span</span>
-      {props.together}
-    </div>
-  )
+class Inner extends React.Component {
+  render() {
+    let fn = null
+    if (this.props.update) {
+      fn = this.props.update
+    }
+    return <div onClick={fn}>inner</div>
+  }
 }
 export { Children, Inner }
