@@ -23,15 +23,18 @@ class Children extends React.Component {
     })
     console.log(this.state.value)
     setTimeout(() => {
-      this.setState({
-        value: this.state.value + 1
-      })
-      console.log(this.state.value)
-      this.setState({
-        value: this.state.value + 1
-      })
       console.log(this.state.value)
     }, 0)
+    // setTimeout(() => {
+    //   this.setState({
+    //     value: this.state.value + 1
+    //   })
+    //   console.log(this.state.value)
+    //   this.setState({
+    //     value: this.state.value + 1
+    //   })
+    //   console.log(this.state.value)
+    // }, 0)
   }
   handleChildren() {
     let children = this.props.children
