@@ -5,22 +5,30 @@ class Children extends React.Component {
     super(prop)
     this.state = {
       childrenAccount: 0,
-      value: 0
+      value: "i'm value"
     }
     this.updateChildrenAccount = this.updateChildrenAccount.bind(this)
   }
   static childContextTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    update: PropTypes.func
   }
   getChildContext() {
     return {
-      text: "i'm context transfer"
+      text: this.state.value,
+      update: this.updateChildrenAccount
     }
   }
   updateChildrenAccount() {
-    this.setState({
-      childrenAccount: this.state.childrenAccount + 1
-    })
+    this.setState(
+      {
+        childrenAccount: this.state.childrenAccount + 1
+      },
+      () => {
+        console.log(this.state.childrenAccount)
+      }
+    )
+    return null
   }
   componentDidMount() {
     this.setState({
@@ -37,12 +45,12 @@ class Children extends React.Component {
   }
   handleChildren() {
     let children = this.props.children
-    let update = this.updateChildrenAccount
+    // let update = this.updateChildrenAccount
     return React.Children.map(children, item => {
       return React.cloneElement(item, {
         // together: React.Children.count(children)
-        together: children,
-        update
+        together: children
+        // update
       })
     })
   }
@@ -57,14 +65,29 @@ class Children extends React.Component {
 }
 class Inner extends React.Component {
   static contextTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    update: PropTypes.func
+  }
+  constructor() {
+    super()
+    this.div = React.createRef()
   }
   render() {
     let fn = null
-    if (this.props.update) {
-      fn = this.props.update
+    if (this.context.update) {
+      fn = this.context.update
     }
-    return <div onClick={fn}>{this.context.text}</div>
+    let div = React.createRef()
+    setTimeout(() => {
+      if (div.current) {
+        console.log(div)
+      }
+    }, 1000)
+    return (
+      <div onClick={fn} ref={div}>
+        {this.context.text}
+      </div>
+    )
   }
 }
 
