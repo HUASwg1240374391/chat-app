@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 class Children extends React.Component {
   constructor(prop) {
     super(prop)
@@ -7,6 +8,14 @@ class Children extends React.Component {
       value: 0
     }
     this.updateChildrenAccount = this.updateChildrenAccount.bind(this)
+  }
+  static childContextTypes = {
+    text: PropTypes.string
+  }
+  getChildContext() {
+    return {
+      text: "i'm context transfer"
+    }
   }
   updateChildrenAccount() {
     this.setState({
@@ -25,16 +34,6 @@ class Children extends React.Component {
     setTimeout(() => {
       console.log(this.state.value)
     }, 0)
-    // setTimeout(() => {
-    //   this.setState({
-    //     value: this.state.value + 1
-    //   })
-    //   console.log(this.state.value)
-    //   this.setState({
-    //     value: this.state.value + 1
-    //   })
-    //   console.log(this.state.value)
-    // }, 0)
   }
   handleChildren() {
     let children = this.props.children
@@ -57,12 +56,16 @@ class Children extends React.Component {
   }
 }
 class Inner extends React.Component {
+  static contextTypes = {
+    text: PropTypes.string
+  }
   render() {
     let fn = null
     if (this.props.update) {
       fn = this.props.update
     }
-    return <div onClick={fn}>inner</div>
+    return <div onClick={fn}>{this.context.text}</div>
   }
 }
+
 export { Children, Inner }
